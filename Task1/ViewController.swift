@@ -10,14 +10,25 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var secondVC: UIButton!
     @IBOutlet weak var thirdVC: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        textField.layer.cornerRadius = 15
+       notificationHandled()
+        
+    }
+    
+    func notificationHandled() {
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("Age"), object: ThirdViewController.self, queue: .main) { [weak self] (note) in
+            
+            guard let userInfo = note.userInfo as? [String: Any],
+                let age = userInfo["age"] as? String else { return }
+            self?.ageLabel.text = age
+        }
+        
     }
 
     @IBAction func secondVCButton(_ sender: UIButton) {
@@ -33,7 +44,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toSecondVC" {
             let secondVC = segue.destination as! SecondViewController
-            secondVC.displayedText = textField.text ?? ""
+            secondVC.delegate = self
+//            secondVC.displayedText = textField.text ?? ""
         }
     }
     
@@ -44,4 +56,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
 //        thirdVC.isHidden = false
 //        return string.rangeOfCharacter(from: allowedChars) == nil
 //    }
+}
+
+extension ViewController: NameLabelDelegate {
+    func addName(to label: String) {
+        nameLabel.text = label
+    }
+    
+    
 }

@@ -35,26 +35,34 @@
                                     <action selector="thirdVCButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ovc-k0-8SI"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter something..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kKA-Ou-3mQ">
-                                <rect key="frame" x="40" y="278" width="334" height="30"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pya-Pm-v3Q">
+                                <rect key="frame" x="20" y="170" width="374" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgk-MC-XOT">
+                                <rect key="frame" x="20" y="232" width="374" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="kKA-Ou-3mQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="51Y-OE-Fxd"/>
-                            <constraint firstItem="kKA-Ou-3mQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="234" id="Ad0-qg-FE5"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kKA-Ou-3mQ" secondAttribute="trailing" constant="40" id="UOG-N5-rGK"/>
+                            <constraint firstItem="rgk-MC-XOT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="2H5-kO-gnM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pya-Pm-v3Q" secondAttribute="trailing" constant="20" id="9Hy-YB-XLZ"/>
+                            <constraint firstItem="rgk-MC-XOT" firstAttribute="top" secondItem="pya-Pm-v3Q" secondAttribute="bottom" constant="20" id="SKp-Dp-lR8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rgk-MC-XOT" secondAttribute="trailing" constant="20" id="hYn-NR-0BH"/>
+                            <constraint firstItem="pya-Pm-v3Q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ono-5G-IPf"/>
+                            <constraint firstItem="pya-Pm-v3Q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="126" id="yxL-xs-wmD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="ageLabel" destination="rgk-MC-XOT" id="mFn-pv-FXS"/>
+                        <outlet property="nameLabel" destination="pya-Pm-v3Q" id="CCb-nY-2Ka"/>
                         <outlet property="secondVC" destination="da1-bb-rhS" id="qnm-ZA-K2h"/>
-                        <outlet property="textField" destination="kKA-Ou-3mQ" id="MOu-z4-Rbc"/>
                         <outlet property="thirdVC" destination="cQG-T3-Alx" id="NfO-57-tbg"/>
                     </connections>
                 </viewController>
@@ -70,22 +78,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHf-ky-1Pk">
-                                <rect key="frame" x="154.5" y="421" width="105.5" height="54"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Whats your name?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHf-ky-1Pk">
+                                <rect key="frame" x="28.5" y="421" width="357.5" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O5o-rF-MDu">
+                                <rect key="frame" x="20" y="530" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="K1j-0j-2KA"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstItem="JHf-ky-1Pk" firstAttribute="centerY" secondItem="wTQ-Y4-QfR" secondAttribute="centerY" id="61m-la-eKR"/>
+                            <constraint firstItem="O5o-rF-MDu" firstAttribute="leading" secondItem="l3m-Kq-N42" secondAttribute="leading" constant="20" id="E7C-fS-Vw7"/>
                             <constraint firstItem="JHf-ky-1Pk" firstAttribute="centerX" secondItem="wTQ-Y4-QfR" secondAttribute="centerX" id="e8D-Sy-IFF"/>
+                            <constraint firstItem="O5o-rF-MDu" firstAttribute="top" secondItem="JHf-ky-1Pk" secondAttribute="bottom" constant="55" id="mHM-pi-Bq6"/>
+                            <constraint firstItem="l3m-Kq-N42" firstAttribute="trailing" secondItem="O5o-rF-MDu" secondAttribute="trailing" constant="20" id="xM1-eg-X9D"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="l3m-Kq-N42"/>
                     </view>
                     <connections>
-                        <outlet property="textLabel" destination="JHf-ky-1Pk" id="9NL-h2-xWX"/>
+                        <outlet property="nameTextField" destination="O5o-rF-MDu" id="pgp-G0-kzd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ZZ-ne-aLR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -99,9 +119,37 @@
                     <view key="view" contentMode="scaleToFill" id="hrk-YF-TCI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Whats your age?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M2f-wH-leA">
+                                <rect key="frame" x="20" y="369" width="374" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jnO-XH-Xbb">
+                                <rect key="frame" x="20" y="443" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="9oA-O2-gdF"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" red="0.57380741830000004" green="0.56553578380000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="jnO-XH-Xbb" firstAttribute="leading" secondItem="uRr-uR-Loh" secondAttribute="leading" constant="20" id="8dj-ku-a5O"/>
+                            <constraint firstItem="M2f-wH-leA" firstAttribute="top" secondItem="uRr-uR-Loh" secondAttribute="top" constant="325" id="Ud4-Ww-5lR"/>
+                            <constraint firstItem="jnO-XH-Xbb" firstAttribute="top" secondItem="M2f-wH-leA" secondAttribute="bottom" constant="20" id="Z7V-PS-icC"/>
+                            <constraint firstAttribute="trailing" secondItem="jnO-XH-Xbb" secondAttribute="trailing" constant="20" id="gg9-ZI-1iA"/>
+                            <constraint firstItem="uRr-uR-Loh" firstAttribute="trailing" secondItem="M2f-wH-leA" secondAttribute="trailing" constant="20" id="iW5-Xh-vr1"/>
+                            <constraint firstItem="M2f-wH-leA" firstAttribute="leading" secondItem="uRr-uR-Loh" secondAttribute="leading" constant="20" id="xHt-Mr-Jcd"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="uRr-uR-Loh"/>
                     </view>
+                    <connections>
+                        <outlet property="ageTextField" destination="jnO-XH-Xbb" id="Iwu-oO-gUW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XiT-Oz-h8y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

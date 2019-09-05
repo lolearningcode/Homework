@@ -9,28 +9,27 @@
 import UIKit
 
 class ThirdViewController: UIViewController {
-
+    
+    @IBOutlet weak var ageTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let tapGesture = UITapGestureRecognizer()
         tapGesture.addTarget(self, action: #selector(toMainVC))
         view.addGestureRecognizer(tapGesture)
+//        notificationHandled()
         // Do any additional setup after loading the view.
     }
     
     @objc func toMainVC() {
+        notificationHandled()
         dismiss(animated: true, completion: nil)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func notificationHandled() {
+        guard let age = ageTextField.text else { return }
+        let userInfo: [String: Any] = ["age" : age]
+        NotificationCenter.default.post(name: NSNotification.Name("Age"), object: ThirdViewController.self, userInfo: userInfo)
     }
-    */
-
 }

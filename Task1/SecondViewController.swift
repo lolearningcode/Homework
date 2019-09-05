@@ -8,11 +8,16 @@
 
 import UIKit
 
+protocol NameLabelDelegate: class {
+    func addName(to label: String)
+}
+
 class SecondViewController: UIViewController {
 
-    @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var nameTextField: UITextField!
     
     var displayedText = ""
+    weak var delegate: NameLabelDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,21 +25,15 @@ class SecondViewController: UIViewController {
         tapGesture.addTarget(self, action: #selector(toMainVC))
         view.addGestureRecognizer(tapGesture)
         // Do any additional setup after loading the view.
-        textLabel.text = displayedText
+//        nameTextField.text = displayedText
     
     }
     
     @objc func toMainVC() {
+        guard let name = nameTextField.text else { return }
+        delegate?.addName(to: name)
         dismiss(animated: true, completion: nil)
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }
